@@ -14,7 +14,7 @@ const travelAgencySchema: Schema = new Schema(
         {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'Event'
+        ref: 'event'
     }
     ],
     isActive: { type: Boolean, default: true }

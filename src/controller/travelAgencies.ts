@@ -6,7 +6,7 @@ const agenciesDal = dataAccessLayer(agencies)
 
 const getAll = (req:Request, res: Response, next: NextFunction) => {
     const filter = { isActive: true }
-    agenciesDal.getAll(filter, { path: 'events', select: '-password' },
+    agenciesDal.getAll(filter, { path: 'events' },
     'events')
     .then((data: any) => {
       res.status(200).json(data)
@@ -36,7 +36,7 @@ const getOne = (req: Request, res: Response, next: NextFunction) => {
     const agenciesId = req.params.id
     const filter = { isActive: true, _id: {agenciesId} }
     agenciesDal
-      .getOne(filter, { path: 'events', select: '-password' },
+      .getOne(filter, { path: 'events' },
       'events')
       .then((data: any) => {
         res.status(200).json(data)
