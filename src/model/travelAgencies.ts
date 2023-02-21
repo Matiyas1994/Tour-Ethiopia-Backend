@@ -10,7 +10,13 @@ const travelAgencySchema: Schema = new Schema(
     telephone: {type: String, required: true},
     rating: {type: String, required: true},
     address : {type: String, required: false},
-    events: [{type: Object,required: false}],
+    events: [
+        {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: 'Event'
+    }
+    ],
     isActive: { type: Boolean, default: true }
 
 })
